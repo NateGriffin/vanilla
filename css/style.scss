@@ -1,0 +1,30 @@
+//terminal code: sass --watch style.scss:style.css
+//SASS PREFIXER MIXIN
+@mixin prefixer ($property, $value,
+                 $moz:    true,
+                 $webkit: true,
+                 $o:      false,
+                 $ms:     false,
+                 $spec:   true) {
+  @if $moz    {    -moz-#{$property}: $value; }
+  @if $webkit { -webkit-#{$property}: $value; }
+  @if $o      {      -o-#{$property}: $value; }
+  @if $ms     {     -ms-#{$property}: $value; }
+  @if $spec   {         #{$property}: $value; }
+}
+//Simple Reset
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  @include prefixer(box-sizing,border-box);
+}
+
+
+.wrapper {
+	max-width: 960px;
+	margin:0 auto;
+}
